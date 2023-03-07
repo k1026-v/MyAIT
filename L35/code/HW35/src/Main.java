@@ -1,14 +1,6 @@
 public class Main {
     public static void main(String[] args) {
 
-        class Wine {
-
-            String name;
-
-            String sort;
-
-            Integer year;
-        }
 
         Wine myWine= new Wine();
             myWine.name = "Chardonnay Riserva";
@@ -28,9 +20,20 @@ public class Main {
         myWine2.sort="desert";
         myWine2.year=1972;
 
-        System.out.println(myWine.name+ myWine.year + myWine.sort);
-        System.out.println(myWine.name+ myWine.year + myWine.sort);
-        System.out.println(myWine.name+ myWine.year + myWine.sort);
+        System.out.println(myWine.name+ " "+ myWine.year+ " " + myWine.sort);
+        System.out.println(myWine1.name+ " "+ myWine1.year+ " " + myWine1.sort);
+        System.out.println(myWine2.name+ " "+ myWine2.year+ " " + myWine2.sort);
+
+        System.out.println(myWine.toString());
+
+        myWine.onStock(4);
+        myWine1.onStock(13);
+        myWine2.onStock(1);
+
+
+                myWine.getYear();
+                myWine1.getYear();
+                myWine2.getYear();
     }
 
 }
