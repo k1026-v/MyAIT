@@ -38,10 +38,37 @@ public class Main {
         myPhone.recievCall("Mama");
         myPhone1.recievCall("Papa");
 
-        System.out.println(myPhone1.getPhoneNumber());*/
+        System.out.println(myPhone1.getPhoneNumber());
 
+       Books myBook= new Books();
+       myBook.name=" Sapiens: A Graphic History";
+       myBook.author="Yuval Noah Harari's";
+       myBook.publicationYear=2021;
 
+       Books myBook1=new Books();
+       myBook1.name="The Real Book, Volume I";
+       myBook1.author="Hal Leonard";
+       myBook1.publicationYear=2020;
 
+       Books myBook2=new Books();
+       myBook2.name="Mythology: Timeless Tales of Gods and Heroes";
+       myBook2.author="Edith Hamilton";
+       myBook2.publicationYear=2018;
 
+        System.out.println("Book 1:"+myBook.toString());
+        System.out.println("Book 2:"+myBook1.toString());
+        System.out.println("Book 3:"+myBook2.toString());
+
+        myBook.readNow("mama");
+        myBook1.readNow("papa");
+        myBook2.readNow("Tom");*/
+
+      Books myBook=new Books(" Sapiens: A Graphic History", "Yuval Noah Harari's", 2021);
+      Books myBook1=new Books("The Real Book, Volume I", "Hal Leonard", 2020);
+      Books myBook2=new Books("Mythology: Timeless Tales of Gods and Heroes", "Edith Hamilton", 2018);
+
+        System.out.println(myBook);
+        System.out.println(myBook1);
+        System.out.println(myBook2);
     }
 }
