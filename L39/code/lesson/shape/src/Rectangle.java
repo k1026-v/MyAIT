@@ -7,4 +7,9 @@ public class Rectangle extends Shape {
         this.a = a;
         this.b = b;
     }
+
+    @Override
+    public double square() {
+        return(a*b);
+    }
 }

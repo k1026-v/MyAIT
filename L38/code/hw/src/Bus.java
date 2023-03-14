@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Bus {
     //Создать класс Bus с атрибутами: номер маршрута, водитель, вместимость 36 мест,
     // скорость на маршруте (не может быть больше 60 км/ч), стоимость проезда 2 евро.
@@ -13,21 +11,16 @@ public class Bus {
     // Рассчитайте объем дневной выручки от работы автобуса.
 
     Integer busLine;
-    String driver;
+    public String driver;
     Integer capacity;
     Integer speed;
     Integer cost;
 
-    public Bus(Integer busLine, String driver, Integer capacity, Integer speed, Integer cost) {
+      public Bus(Integer busLine, String driver, Integer capacity, Integer speed, Integer cost) {
         this.busLine = busLine;
         this.driver = driver;
-        this.capacity = 36;
-        if( speed>60){
-            System.out.println("Overspeeding");
-
-        }else {
-            this.speed = speed;};
-
+        this.capacity = capacity;
+        this.speed = speed;
         this.cost = cost;
     }
 
@@ -35,16 +28,25 @@ public class Bus {
     public String toString() {
         return "Bus{" +
                 "busLine=" + busLine +
-                ", driver='" + driver + '\'' +
+                ", driver='" + getDriver() + '\'' +
                 ", capacity=" + capacity +
                 ", speed=" + speed +
                 ", cost=" + cost +
                 '}';
     }
 
-    public String setDriver(String name){
-
-        this.driver = name;
-        return name;
+    public Drivers setDriver(String driver){
+        this.driver = driver;
+        return null;
     }
+
+    public void go(){
+        System.out.println("Bus"+ this.busLine+ "go by"+ this.driver);
+    }
+
+    public String getDriver(){
+          return driver;
+    }
+
+
 }

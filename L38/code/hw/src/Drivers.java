@@ -2,6 +2,8 @@ public class Drivers {
     String nameDriver;
     Integer ageDriver;
 
+    Bus bus;
+
     @Override
     public String toString() {
         return "Drivers{" +
