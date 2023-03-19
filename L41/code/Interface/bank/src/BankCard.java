@@ -5,8 +5,9 @@ public class BankCard implements Debit, Credit{
     }
 
     @Override
-    public void debitCredit() {
+    public void  debitCredit() {
         System.out.println("Deduct some money from card");
+
 
     }
 }

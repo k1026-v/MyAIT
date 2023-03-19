@@ -6,5 +6,9 @@ public class Main {
 
     card1.creditMethod();
     card1.debitCredit();
+
+
 }
+
+
 }
