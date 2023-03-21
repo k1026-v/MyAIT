@@ -4,7 +4,7 @@ public class Basket {
 
     ArrayList <String> basket;
 
-    public Basket() {
+    public Basket(ArrayList<String> basket) {
         this.basket = basket;
     }
 

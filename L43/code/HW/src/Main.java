@@ -14,7 +14,6 @@ public class Main {
        Product dress2= new Product("dress1", 45.00, 6.0);
        Product dress3= new Product("dress1", 75.00, 7.5);
 
-
         ArrayList <String> dresses= new ArrayList<>();
         dresses.add(dress1.toString());
         dresses.add(dress2.toString());
@@ -37,14 +36,15 @@ public class Main {
         Categories c2=new Categories("tshirts",tshirts);
         System.out.println(c2.toString());
 
-        Basket ub1= new Basket();
-        ub1.add(dress1);
-        ub1.add(dress3);
-     System.out.println(ub1.toString());
+     ArrayList ubL1= new ArrayList<>();
+     Basket ub1= new Basket(ubL1);
+        ubL1.add(dress1);
+        ubL1.add(dress3);
+        System.out.println(ub1.toString());
         User u1= new User("kat","123", ub1);
-     System.out.println(u1.toString());
+        System.out.println(u1.toString());
 
-        Basket ub2= new Basket();
+        Basket ub2= new Basket(ubL1);
         User u2= new User("dog", "abd", ub2);
 
 
