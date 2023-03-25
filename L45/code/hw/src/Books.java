@@ -20,4 +20,13 @@ public class Books implements Comparable <Books> {
             return 1;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Books{" +
+                "name='" + name + '\'' +
+                ", yearPublishing=" + yearPublishing +
+                ", price=" + price +
+                '}';
+    }
 }

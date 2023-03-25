@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +14,19 @@ public class Main {
         System.out.println(b1.compareTo(b2));
         System.out.println(b1.compareTo(b3));
         System.out.println(b1.compareTo(b4));
+
+
+        ArrayList <String> t3= new ArrayList<String>();
+
+        t3.add(String.valueOf(b1));
+        t3.add(String.valueOf(b2));
+        t3.add(String.valueOf(b3));
+        t3.add(String.valueOf(b4));
+        t3.add(String.valueOf(b5));
+
+
+        System.out.println(t3);
+
 
     }
 }
