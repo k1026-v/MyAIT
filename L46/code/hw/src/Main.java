@@ -19,10 +19,12 @@ public class Main {
         dogList.add(dog4);
         dogList.add(dog5);
 
-        Collections.sort(dogList);   // Сортируем список
-        System.out.println(dogList); // печатаем результат
 
-        // Collections.sort(dogList, new Dog());
+        Collections.sort(dogList, new SortByAge());
+        System.out.println("Sorted data according to Dog age");
+        for (int i=0; i < dogList.size(); i++) {
+            System.out.println(dogList.get(i));
+        }
 
-
-        // Сортируем список, используя компаратор
+    }
+}
