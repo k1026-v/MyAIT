@@ -25,8 +25,5 @@ public class Human implements Comparable {
         }
 
 
-    @Override
-    public int compareTo(Object o) {
-        return this.name;
-    }
+
 }
