@@ -30,6 +30,22 @@ public class MathMethodsTest {
         assertFalse(mathMethods.isEven(11));
         assertFalse(mathMethods.isEven(121));
     }
+    @Test
+    @DisplayName("Тестируем метод isDivBy3")
+    void isDivBy3 (){
+        assertTrue(mathMethods.isDivBy3(9));
+        assertTrue(mathMethods.isDivBy3(24));
+        assertFalse(mathMethods.isDivBy3(11));
+        assertFalse(mathMethods.isDivBy3(121));
+    }
+    @Test
+    @DisplayName("Тестируем метод isDivBy5")
+    void isDivBy5 (){
+        assertTrue(mathMethods.isDivBy5(10));
+        assertTrue(mathMethods.isDivBy5(25));
+        assertFalse(mathMethods.isDivBy5(11));
+        assertFalse(mathMethods.isDivBy5(121));
+    }
 
 
 }

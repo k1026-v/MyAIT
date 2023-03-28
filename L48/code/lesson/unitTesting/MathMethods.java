@@ -22,12 +22,24 @@ public class MathMethods {
 
             if (number % 2 == 0) {
                 return true;
-            }
-
-        return true;
+            } else  return false;
     }
 
-    // - Действие n! = 1*2*3*...*n, то есть 5! = 1*2*3*4*5 = 120
+    public boolean isDivBy3 (int number) {
+
+            if (number % 3 == 0) {
+                return true;
+            } else  return false;
+    }
+
+    public boolean isDivBy5 (int number) {
+
+            if (number % 5 == 0) {
+                return true;
+            } else  return false;
+    }
+
+
 
 
 
