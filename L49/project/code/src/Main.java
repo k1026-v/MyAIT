@@ -13,10 +13,11 @@ public class Main {
 
 
 //Работа над проектом
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         String path = "C:\\MyAIT\\L49\\project\\code\\src\\";
         String fileName = "numberCard.txt";
         String fileName1 = "pin.txt";
+
 
         createFile(path, fileName); // создаем файл
         String data = "100200300400";
@@ -30,36 +31,46 @@ public class Main {
         String d1 = Bank.readDataFromFile(path, fileName1);
         System.out.println("Your pin:" + '\n' + d1);
 
-        ATM atm1=new ATM("RICH","DE100",1,"Munchen, Große Str., 16");
+        Bank rich = new Bank("RICH", "DE100");
+        ATM atm1 = new ATM("RICH", "DE100", 1, "Munchen, Große Str., 16");
+        Client client = new Client("Kateryna Zhylina", "123456789", "100200300400", "1234");
+        Client client1 = new Client("Agata Zhylina", "12355555", "100200300500", "2345");
 
         List<Integer> bankAccount = new ArrayList<>();
         bankAccount.add(300);
         bankAccount.add(500);
         bankAccount.add(700);
 
-        List<String> bankAccountTransaction = new ArrayList<>();
+        List<Integer> bankAccount1 = new ArrayList<>();
+        bankAccount1.add(100);
+        bankAccount1.add(100);
 
-        int i=0;
+        //List<String> bankAccountTransaction = new ArrayList<>();
+
 
 //Банкомат
         System.out.println();
-        System.out.println(" Welcome to  RICH BANK!\n"+"ATM "+atm1.AtmNumber+" "+atm1.adress);
+        System.out.println(" Welcome to  RICH BANK!\n" + "ATM " + atm1.AtmNumber + " " + atm1.adress);
 
 
-       while ( i<3) {
-           System.out.println("Insert your cart number:");
-           String input = readClientInput();
-           if (input.equals(d)) {
-               System.out.println("Insert your pin:");
+        while (true) {
+            System.out.println("Insert your cart number:");
+            String input = readClientInput();
+            if (input.equals(d)) {
+                System.out.println("Insert your pin:");
 
-           } else System.out.println("Incorrect input. Try agan");
+            } else System.out.println("Incorrect input. Take your card and try agan");
 
-           String input1 = readClientInput();
-           if (input1.equals(d1)) {
-               System.out.println();
-               break;
-           } else System.out.println();System.out.println("Incorrect input. Try agan");
-       }
+
+            String input1 = readClientInput();
+            if (input1.equals(d1)) {
+            System.out.println();
+            break;
+            } else
+            System.out.println();
+            System.out.println("Incorrect input. Take your card and try agan\"");
+        }
+
 
 
         System.out.println("Choice operation");
@@ -68,25 +79,27 @@ public class Main {
             ACCOUNT_BALANCE,
             CASH_WITHDRAW,
             REFILL_ACCOUNT,
+
+            MONEY_TRANSFER,
             EXIT,
         }
 
 
-        // начало раьоты с пользователем
+
         while (true) {
 
             for (Menu myMenu : Menu.values()) { // цикл for each - Список, который перебираем, параметр цикла, значения
                 System.out.print(myMenu + " | "); // опертор с параметром цикла
             }
             System.out.println();
-            System.out.println("Выберите, что надо сделать: нажмите 1, 2, 3 или 4");
+            System.out.println("Выберите, что надо сделать: нажмите 1, 2, 3, 4 или 5");
             int choice = ATM.readMenueChoice(); // выбор пользователя считаем в методе readMenuChoice
             Menu myMenu = Menu.ACCOUNT_BALANCE; // начальное значение выбора в меню
 
             switch (choice) {
                 case 1: {
                     myMenu = Menu.ACCOUNT_BALANCE;
-                    System.out.println("Account balance:"+bankAccount.get(bankAccount.size()-1));
+                    System.out.println("Account balance:"+bankAccount.get(bankAccount.size()-1)+" Euro");
                     //add_task(todoList); // вызов метода, который добавляе задачу в список задач
                     //print_tasks(todoList); // вызов метода, который печатает список задач
                     break;
@@ -94,23 +107,39 @@ public class Main {
                 case 2: {
                     myMenu = Menu.CASH_WITHDRAW;
                     bankAccount.add(ClientBankAccount.cashWithdraw(bankAccount));
-                    System.out.println("Account balance:"+bankAccount.get(bankAccount.size()-1));
+                    System.out.println("Account balance:"+bankAccount.get(bankAccount.size()-1)+" Euro");
                     break;
                 }
                 case 3: {
                     myMenu = Menu.REFILL_ACCOUNT ;
 
                     bankAccount.add(ClientBankAccount.refillAccount(bankAccount));
-                    System.out.println("Account balance:"+bankAccount.get(bankAccount.size()-1));
+                    System.out.println("Account balance:"+bankAccount.get(bankAccount.size()-1)+" Euro");
                     break;
                 }
                 case 4: {
+                    myMenu = Menu.MONEY_TRANSFER;
+                    int transfer=ClientBankAccount.moneyTransfer(bankAccount);
+                    int balance=bankAccount.get(bankAccount.size()-1);
+                    int dif = balance - transfer;
+                    bankAccount.add(dif);
+                    int balance1=bankAccount1.get(bankAccount1.size()-1);
+                    int sum1 = balance1 + transfer;
+                    bankAccount1.add(sum1);
+
+                    System.out.println("Account balance:"+bankAccount.get(bankAccount.size()-1)+" Euro");
+                    System.out.println();
+                    if (transfer>0){
+                    System.out.println("MESSAGE TO CLIENT1:You got money: "+ transfer+" Euro "+ "Account balance:"+bankAccount1.get(bankAccount1.size()-1)+"   Euro");}
+                    break;
+                }
+                case 5: {
                     myMenu = Menu.EXIT;
                     System.out.println("Thanks! See you!");
                     return;
                 }
                 default:{
-                    System.out.println("Введите число 1, 2, 3 или 4");
+                    System.out.println("Введите число 1, 2, 3, 4 или 5");
                 }
             }
         }
@@ -125,11 +154,9 @@ public class Main {
     public static String readClientInput() {
         Scanner sc = new Scanner(System.in);
         String clientInput=" ";
-        try {
-            clientInput = sc.nextLine();
-        } catch (InputMismatchException e ) {
-            System.out.println("Incorrect input. Pleas, input number ");
-        }
+
+        clientInput = sc.nextLine();
+
         return clientInput;
     }
 
