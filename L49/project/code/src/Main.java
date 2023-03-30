@@ -19,15 +19,15 @@ public class Main {
         String fileName1 = "pin.txt";
 
 
-        createFile(path, fileName); // создаем файл
+        createFile(path, fileName);
         String data = "100200300400";
-        Bank.writeDataInFile(path, fileName, data); // пишем данные в файл
+        Bank.writeDataInFile(path, fileName, data);
         String d = Bank.readDataFromFile(path, fileName);
         System.out.println("Your cart number:" + '\n' + d);
 
-        createFile(path, fileName1); // создаем файл
+        createFile(path, fileName1);
         String data1 = "1234";
-        Bank.writeDataInFile(path, fileName1, data1); // пишем данные в файл
+        Bank.writeDataInFile(path, fileName1, data1);
         String d1 = Bank.readDataFromFile(path, fileName1);
         System.out.println("Your pin:" + '\n' + d1);
 
@@ -88,13 +88,13 @@ public class Main {
 
         while (true) {
 
-            for (Menu myMenu : Menu.values()) { // цикл for each - Список, который перебираем, параметр цикла, значения
-                System.out.print(myMenu + " | "); // опертор с параметром цикла
+            for (Menu myMenu : Menu.values()) {
+                System.out.print(myMenu + " | ");
             }
             System.out.println();
             System.out.println("Выберите, что надо сделать: нажмите 1, 2, 3, 4 или 5");
-            int choice = ATM.readMenueChoice(); // выбор пользователя считаем в методе readMenuChoice
-            Menu myMenu = Menu.ACCOUNT_BALANCE; // начальное значение выбора в меню
+            int choice = ATM.readMenueChoice();
+            Menu myMenu = Menu.ACCOUNT_BALANCE;
 
             switch (choice) {
                 case 1: {
